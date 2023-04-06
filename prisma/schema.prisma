@@ -11,7 +11,39 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+  id             Int       @id @default(autoincrement())
+  email          String    @unique
+  password       String
+  createdIssues  Issue[]   @relation("createdBy")
+  assignedIssues Issue[]   @relation("assignedTo")
+  projects       Project[]
+}
+
+model Issue {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+  Project      Project? @relation(fields: [projectId], references: [id])
+  projectId    Int?
+  createdBy    User     @relation("createdBy", fields: [createdById], references: [id])
+  createdById  Int
+  assignedTo   User?    @relation("assignedTo", fields: [assignedToId], references: [id])
+  assignedToId Int?
+  name         String
+  description  String?
+  status       String
+  priority     String
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  name        String
+  description String
+  issues      Issue[]
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  status      String
+  startDate   String
 }

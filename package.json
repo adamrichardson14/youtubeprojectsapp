@@ -10,16 +10,23 @@
     "prisma:migrate": "prisma migrate deploy"
   },
   "dependencies": {
-    "@next/font": "^13.0.5",
     "@prisma/client": "^4.6.1",
+    "@radix-ui/react-scroll-area": "^1.0.3",
+    "@radix-ui/react-select": "^1.2.1",
+    "@radix-ui/react-toast": "^1.1.3",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "bcrypt": "^5.1.0",
-    "next": "^13.2.4",
-    "next-auth": "^4.17.0",
+    "class-variance-authority": "^0.5.1",
+    "clsx": "^1.2.1",
+    "lucide-react": "^0.130.1",
+    "next": "^13.3.0",
+    "next-auth": "^4.21.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hot-toast": "^2.4.0"
+    "react-hot-toast": "^2.4.0",
+    "tailwind-merge": "^1.12.0",
+    "tailwindcss-animate": "^1.0.5"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
